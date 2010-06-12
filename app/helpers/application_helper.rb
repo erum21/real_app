@@ -9,5 +9,8 @@ module ApplicationHelper
       "#{base_title} | #{@title}"
     end
   end
-
+  
+  def logo
+    @logo = image_tag("logob.png", :alt => "RealComment App", :class => "round")
+  end  
 end
