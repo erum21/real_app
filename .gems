@@ -12,7 +12,7 @@ arrayfields --version 4.7.4
 rack --version 1.1.0
 rake --version 0.8.7
 addressable --version 2.1.2
-bcrypt-ruby --version 
+bcrypt-ruby --version 2.1.2
 BlueCloth --version 1.0.1
 bundler --version 0.9.25
 builder --version 2.1.2
