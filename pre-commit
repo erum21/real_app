@@ -1,0 +1,2 @@
+#!/bin/sh
+rake annotate_models > /dev/null
