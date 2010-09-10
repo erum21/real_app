@@ -138,9 +138,9 @@ describe User do
    
    describe "remember me" do
 
-    before(:each) do
-      @user = User.create!(@attr)
-    end
+  # before(:each) do
+  #   @user = User.create!(@attr)
+  #  end
 
     it "should have a remember token" do
       @user.should respond_to(:remember_token)
@@ -156,5 +156,5 @@ describe User do
     end
   end 
  end
+end	
 end
-end		
