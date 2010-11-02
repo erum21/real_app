@@ -11,8 +11,10 @@
 #
 require "digest"
 class User < ActiveRecord::Base
-	attr_accessor :password
+	attr_accessor 	:password
 	attr_accessible :name, :email, :password, :password_confirmation
+	
+	has_many :microposts, :dependent => :destroy
 	
 	EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	
@@ -21,14 +23,14 @@ class User < ActiveRecord::Base
     # Automatically create the virtual attribute "password_confirmation".
 	validates_confirmation_of :password
 	
-	validates_presence_of :name, :email
-	validates_length_of   :name, :maximum => 50
-	validates_format_of   :email, :with => EmailRegex
+	validates_presence_of 	:name, :email
+	validates_length_of   	:name, :maximum => 50
+	validates_format_of   	:email, :with 	=> EmailRegex
 	validates_uniqueness_of :email, :case_sensitive => false
 	
 	# Password validations.
 	validates_presence_of :password
-	validates_length_of :password, :within => 6..40
+	validates_length_of   :password, :within => 6..40
 	
 	before_save :encrypt_password
 	
@@ -49,9 +51,11 @@ class User < ActiveRecord::Base
 		return nil
   	end
 
+	def feed
+    	# This is preliminary. See Chapter 12 for the full implementation.
+    	Micropost.all(:conditions => ["user_id = ?", id])
+	end
 
-
-	
 	private
 	
 		def encrypt_password
