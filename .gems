@@ -8,6 +8,7 @@ arrayfields --version 4.7.4
 bundler --version 0.9.25
 builder --version 2.1.2
 cucumber --version 0.7.3
+factory_girl --version 1.3.1
 fattr --version 2.1.0
 faker --version 0.3.1
 heroku --version 1.9.9
