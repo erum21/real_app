@@ -43,16 +43,16 @@ describe User do
 		addresses.each do |address|
 			valid_email_user = User.new(@attr.merge(:email => address))
 			valid_email_user.should be_valid
-	end
-  end
+		end
+  	end
 
 	it "should reject invalid email addresses" do
 		addresses = %w[user@foo,com user_at_foo.org example.user@foo.]
 		addresses.each do |address|
 			invalid_email_user = User.new(@attr.merge(:email => address))
 			invalid_email_user.should_not be_valid
-	end
-  end
+		end
+  	end
   
 	it "should reject duplicate email addresses" do
 		# Put a user with given email address into the database.
@@ -68,7 +68,7 @@ describe User do
 		user_with_duplicate_email.should_not be_valid
 	end
   
-  describe "password validations" do
+	describe "password validations" do
 
 	it "should require a password" do
 		User.new(@attr.merge(:password => "", :password_confirmation => "")).
@@ -90,10 +90,10 @@ describe User do
 	  	long = "a" * 41
 	 	hash = @attr.merge(:password => long, :password_confirmation => long)
 		User.new(hash).should_not be_valid
+		end
 	end
-  end
   
-  describe "password encryption" do
+    describe "password encryption" do
 	
 	before(:each) do
 		@user = User.create!(@attr)
@@ -116,6 +116,7 @@ describe User do
 	
 	it "should be false if the passwords don't match" do
 		@user.has_password?("invalid").should be_false
+		end
 	end
 		
 	describe "authenticate method" do
@@ -133,10 +134,10 @@ describe User do
 	it "should return the user on email/password match" do
 		matching_user = User.authenticate(@attr[:email], @attr[:password])
 		matching_user.should == @user
-	end
-   end
+		end
+    end
    
-   describe "remember me" do
+    describe "remember me" do
 
 	it "should have a remember token" do
 		@user.should respond_to(:remember_token)
@@ -149,9 +150,8 @@ describe User do
 	it "should set the remember token" do
 		@user.remember_me!
 		@user.remember_token.should_not be_nil
+    	end
 	end
-  end
-  
    describe "admin attribute" do
   
 	it "should respond to admin" do
@@ -165,8 +165,8 @@ describe User do
 	it "should be convertible to an admin" do
 		@user.toggle!(:admin)
 		@user.should be_admin
-	end
-  end
+		end
+    end
   
 	describe "micropost associations" do
 		
@@ -188,7 +188,8 @@ describe User do
         	@user.destroy
 			[@mp1, @mp2].each do |micropost|
 				Micropost.find_by_id(micropost.id).should be_nil
-			end		
+				end		
+			end
 		end
 	 
 		describe "status feed" do
@@ -208,6 +209,4 @@ describe User do
 			end
 		end
    end
-  end
- end	
 end

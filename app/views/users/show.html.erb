@@ -15,7 +15,8 @@
     </td>
     <td class="sidebar round">
       <strong>Name</strong> <%= h @user.name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
+      <strong>URL</strong>  <%= link_to user_path(@user), @user %>
+      <%= image_tag "user.png" %><br />
       <strong>Microposts</strong> <%= @user.microposts.count %>
     </td>
   </tr>

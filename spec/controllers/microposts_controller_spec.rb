@@ -73,14 +73,13 @@ describe MicropostsController do
         		response.should redirect_to(root_path)
     		end
     	end
-	end
 
     	describe "for an authorized user" do
 
     		before(:each) do
         		@user = test_sign_in(Factory(:user))
         		@micropost = Factory(:micropost, :user => @user)
-        		Micropost.should_receive(:find).with(@micropost).and_return(@micropost)
+        	Micropost.should_receive(:find).with(@micropost).and_return(@micropost)
     		end
 
     		it "should destroy the micropost" do
@@ -89,4 +88,5 @@ describe MicropostsController do
     		end
     	end
 	end
+end
 end
