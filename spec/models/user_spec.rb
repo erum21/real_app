@@ -150,7 +150,6 @@ describe User do
 	it "should set the remember token" do
 		@user.remember_me!
 		@user.remember_token.should_not be_nil
-    	end
 	end
    describe "admin attribute" do
   
@@ -209,4 +208,5 @@ describe User do
 			end
 		end
    end
+end
 end

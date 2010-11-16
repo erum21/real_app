@@ -37,7 +37,7 @@ describe "Microposts" do
         	end.should change(Micropost, :count).by(1)
       	end
     end
-end
+
 
 	describe "destruction" do
 
@@ -50,4 +50,5 @@ end
     		lambda { click_link "delete" }.should change(Micropost, :count).by(-1)
     	end
 	end
+end
 end

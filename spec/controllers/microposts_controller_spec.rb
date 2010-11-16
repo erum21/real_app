@@ -73,7 +73,7 @@ describe MicropostsController do
         		response.should redirect_to(root_path)
     		end
     	end
-
+	
     	describe "for an authorized user" do
 
     		before(:each) do
