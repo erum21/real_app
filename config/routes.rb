@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-	map.resources :users
+	map.resources :users, :member => { :following => :get, :followers => :get }
 	map.resources :sessions,   :only => [:new, :create, :destroy]
 	map.resources :microposts, :only => [:create, :destroy]
+	map.resources :relationships, :only => [:create, :destroy]
 	map.signin  '/signin',  :controller => 'sessions', :action => 'new'
 	map.signout '/signout', :controller => 'sessions', :action => 'destroy'
 	map.contact '/contact', :controller => 'pages', :action => 'contact'
@@ -26,7 +27,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+
   # Sample resource route with more complex sub-resources
   #   map.resources :products do |products|
   #     products.resources :comments

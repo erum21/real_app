@@ -2,7 +2,7 @@
   <table class="front">
     <tr>
       <td class="main">
-      	
+
         <h2 class="micropost">What's up?</h2>
         <%= render 'pages/micropost_form' %>
         <%= render 'pages/feed' %>
@@ -10,7 +10,8 @@
       <td class="sidebar round">
       	<%= image_tag "draft.jpg", :width => 50 %>
         <%= render 'pages/user_info' %>
-        
+		<%= render 'pages/stats' %>
+
       </td>
     </tr>
   </table>
@@ -21,7 +22,7 @@
       <a href="http://localhost:3000/pages/home">Real Comments and Posting Feedbacks!</a>
       application.
     </p>
-    
+
     <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
 
 <% end %>
