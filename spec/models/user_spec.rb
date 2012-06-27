@@ -192,6 +192,7 @@ describe User do
 		end
 	end
 
+
 	describe "status feed" do
 
 			it "should have a feed" do
